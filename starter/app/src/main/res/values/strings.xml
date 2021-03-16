@@ -11,4 +11,9 @@
     <string name="button_name">Click me</string>
     <string name="button_loading">We are loading </string>
     <string name="title_activity_detail">DetailActivity</string>
+
+    <string name="retrofit_safe_http">Retrofit - Type-safe HTTP client for Android and Java by Square, Inc</string>
+    <string name="glide_image_loading">Glide - Image Loading Library by BumpTech</string>
+    <string name="loadapp_current_rp_uda">LoadApp - Current Repository by Udacity</string>
+    <string name="image_on_top_of_main_screen">image on top of main screen</string>
 </resources>

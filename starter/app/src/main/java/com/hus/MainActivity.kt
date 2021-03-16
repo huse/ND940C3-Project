@@ -1,4 +1,4 @@
-package com.udacity
+package com.hus
 
 import android.app.DownloadManager
 import android.app.NotificationManager

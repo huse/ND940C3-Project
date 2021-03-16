@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/image_view_cloud"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/colorPrimaryDark"
+            android:src="@drawable/baseline_cloud_download_black_18dp"
+            android:contentDescription="@string/image_on_top_of_main_screen"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            tools:context=".ui.MainActivity"
+            tools:showIn="@layout/activity_main"/>
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_marginTop="120dp"
+            android:layout_height="300dp"
+            android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginEnd="@dimen/fab_margin">
+
+            <RadioButton
+                android:id="@+id/radio_button_glide_download"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:textSize="17sp"
+                android:text="@string/glide_image_loading" />
+
+            <RadioButton
+                android:id="@+id/radio_button_loadapp_download"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:layout_marginTop="20dp"
+                android:textSize="17sp"
+                android:text="@string/loadapp_current_rp_uda" />
+
+            <RadioButton
+                android:id="@+id/radio_button_retrofit_download"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:layout_marginTop="20dp"
+                android:textSize="17sp"
+                android:text="@string/retrofit_safe_http" />
+
+
+        </RadioGroup>
+        <com.hus.LoadingButton
+            android:id="@+id/custom_button"
+            android:layout_width="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="60dp"
+            android:layout_margin="20dp"
+            tools:text="Download"
+            app:backgroundColor="@color/color_completed_button"
+            app:inProgressBackgroundColor="@color/button_loading_color"
+            app:circleProgressColor="@color/colorAccent"
+            app:failureColor="@color/button_failed_color"
+            app:textColor="@color/white"/>
+    </LinearLayout>
+</layout>
