@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
 
         android:id="@+id/main_layout"
-        android:layout_width="500dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:context=".MainActivity"
@@ -26,7 +26,9 @@
             android:background="@color/colorPrimaryDark"
             android:contentDescription="@string/image_on_top_of_main_screen"
             android:src="@drawable/baseline_cloud_download_black_18dp"
+            app:layout_constraintBottom_toTopOf="@+id/radio_group"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,11 +37,13 @@
             android:layout_width="0dp"
             android:layout_height="500dp"
             android:layout_marginStart="@dimen/fab_margin"
+            android:layout_marginTop="100dp"
             android:layout_marginEnd="@dimen/fab_margin"
-            app:layout_constraintBottom_toTopOf="@id/custom_button"
+            app:layout_constraintBottom_toTopOf="@+id/custom_button"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image_view_cloud">
+            app:layout_constraintTop_toBottomOf="@+id/image_view_cloud">
 
             <RadioButton
                 android:id="@+id/radio_button_glide_download"
@@ -53,8 +57,8 @@
                 android:id="@+id/radio_button_loadapp_download"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="onRadioButtonClicked"
                 android:layout_marginTop="20dp"
+                android:onClick="onRadioButtonClicked"
                 android:text="@string/loadapp_current_rp_uda"
                 android:textSize="17sp" />
 
@@ -62,8 +66,8 @@
                 android:id="@+id/radio_button_retrofit_download"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:onClick="onRadioButtonClicked"
                 android:layout_marginTop="20dp"
+                android:onClick="onRadioButtonClicked"
                 android:text="@string/retrofit_safe_http"
                 android:textSize="17sp" />
 
@@ -75,16 +79,20 @@
             android:layout_width="0dp"
             android:layout_height="60dp"
             android:layout_margin="20dp"
-            app:backgroundColor="@color/color_completed_button"
-            app:circleProgressColor="@color/colorAccent"
-            app:failureColor="@color/button_failed_color"
-            app:inProgressBackgroundColor="@color/button_loading_color"
 
+            app:colorOfBackground="@color/color_completed_button"
+            app:colorOfCircleProgress="@color/colorAccent"
+            app:colorOfFailure="@color/button_failed_color"
+            app:colorOfInProgressBackground="@color/button_loading_color"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="radio_group"
-            app:textColor="@color/white"
+
+            app:layout_constraintTop_toBottomOf="@+id/radio_group"
+            app:colorOfText="@color/white"
             tools:text="Download" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
+

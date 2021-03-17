@@ -58,7 +58,7 @@
 
 
         </RadioGroup>
-        <com.hus.LoadingButton
+<!--        <com.hus.LoadingButton
             android:id="@+id/custom_button"
             android:layout_width="match_parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -70,6 +70,6 @@
             app:inProgressBackgroundColor="@color/button_loading_color"
             app:circleProgressColor="@color/colorAccent"
             app:failureColor="@color/button_failed_color"
-            app:textColor="@color/white"/>
+            app:textColor="@color/white"/>-->
     </LinearLayout>
 </layout>
