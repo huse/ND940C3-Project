@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
+import timber.log.Timber
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,8 +25,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var notificationManager: NotificationManager
     private lateinit var pendingIntent: PendingIntent
     private lateinit var action: NotificationCompat.Action
-    private lateinit var loadButton : LoadingButton
     override fun onCreate(savedInstanceState: Bundle?) {
+        Timber.plant(Timber.DebugTree())
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
@@ -44,6 +45,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun download() {
+
+        Timber.plant(Timber.DebugTree())
+        Timber.i("hhh  download started")
         val request =
             DownloadManager.Request(Uri.parse(URL))
                 .setTitle(getString(R.string.app_name))
@@ -55,6 +59,8 @@ class MainActivity : AppCompatActivity() {
         val downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
         downloadID =
             downloadManager.enqueue(request)// enqueue puts the download request in the queue.
+
+        Timber.i("hhh  download queued.   "   + downloadManager)
     }
 
     companion object {
@@ -63,8 +69,12 @@ class MainActivity : AppCompatActivity() {
         private const val CHANNEL_ID = "channelId"
     }
     fun onRadioButtonClicked(view: View) {
-        if (view is RadioButton && loadButton.buttonState == ButtonState.Inititial){
-            loadButton.settingLoadStateForButton(ButtonState.Clicked)
+        Timber.plant(Timber.DebugTree())
+        Timber.i("hhh  onRadioButtonClicked" + view)
+        if (view is RadioButton && custom_button.buttonState == ButtonState.Inititial){
+
+            Timber.i("hhh  onRadioButtonClicked  inside if statement.")
+            custom_button.settingLoadStateForButton(ButtonState.Clicked)
         }
     }
 }
