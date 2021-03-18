@@ -9,6 +9,8 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
+import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.NotificationCompat
 import kotlinx.android.synthetic.main.activity_main.*
@@ -22,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var notificationManager: NotificationManager
     private lateinit var pendingIntent: PendingIntent
     private lateinit var action: NotificationCompat.Action
-
+    private lateinit var loadButton : LoadingButton
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -60,5 +62,9 @@ class MainActivity : AppCompatActivity() {
             "https://github.com/hus/nd940-c3-advanced-android-programming-project-starter/archive/master.zip"
         private const val CHANNEL_ID = "channelId"
     }
-
+    fun onRadioButtonClicked(view: View) {
+        if (view is RadioButton && loadButton.buttonState == ButtonState.Inititial){
+            loadButton.settingLoadStateForButton(ButtonState.Clicked)
+        }
+    }
 }

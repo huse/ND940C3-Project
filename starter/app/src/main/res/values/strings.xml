@@ -16,4 +16,7 @@
     <string name="glide_image_loading">Glide - Image Loading Library by BumpTech</string>
     <string name="loadapp_current_rp_uda">LoadApp - Current Repository by Udacity</string>
     <string name="image_on_top_of_main_screen">image on top of main screen</string>
+    <string name="select_a_repository">Select a Repository</string>
+    <string name="loading_completed">Loading Completed</string>
+    <string name="loading_in_progress">Loading is In Progress</string>
 </resources>
