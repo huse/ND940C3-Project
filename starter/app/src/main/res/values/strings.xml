@@ -19,4 +19,5 @@
     <string name="select_a_repository">Select a Repository</string>
     <string name="loading_completed">Loading Completed</string>
     <string name="loading_in_progress">Loading is In Progress</string>
+    <string name="failure">Failed to download</string>
 </resources>

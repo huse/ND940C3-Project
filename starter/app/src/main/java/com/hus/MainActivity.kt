@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var notificationManager: NotificationManager
     private lateinit var pendingIntent: PendingIntent
     private lateinit var action: NotificationCompat.Action
+    private lateinit var loadButton : LoadingButton
     override fun onCreate(savedInstanceState: Bundle?) {
         Timber.plant(Timber.DebugTree())
         super.onCreate(savedInstanceState)
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         registerReceiver(receiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
-
+        loadButton = findViewById(R.id.custom_button)
         custom_button.setOnClickListener {
             download()
         }
@@ -71,7 +72,7 @@ class MainActivity : AppCompatActivity() {
     fun onRadioButtonClicked(view: View) {
         Timber.plant(Timber.DebugTree())
         Timber.i("hhh  onRadioButtonClicked" + view)
-        if (view is RadioButton && custom_button.buttonState == ButtonState.Inititial){
+        if (view is RadioButton && custom_button.stateOfButton == ButtonState.Inititial){
 
             Timber.i("hhh  onRadioButtonClicked  inside if statement.")
             custom_button.settingLoadStateForButton(ButtonState.Clicked)
