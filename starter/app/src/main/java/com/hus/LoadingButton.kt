@@ -8,6 +8,7 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
+import timber.log.Timber
 import kotlin.math.abs
 import kotlin.math.roundToInt
 import kotlin.properties.Delegates
@@ -21,8 +22,8 @@ class LoadingButton @JvmOverloads constructor(
     private val textOfButton: String
         get() = context.getString(this.stateOfButton.selectARepository)
     private var colorsAccentyellow = context.getColor(R.color.colorAccent)
-    private var colorFailedRed = context.getColor(R.color.button_failed_color)
-    private var colorTextedWhite = context.getColor(R.color.white)
+    private var colorFailedRed = context.getColor(R.color.color_button_failed)
+    private var colorTextedWhite = context.getColor(R.color.color_white)
     private var colorPrimaryCyen = context.getColor(R.color.colorPrimary)
     private var colorInprogressDarkBlue = context.getColor(R.color.colorPrimaryDark)
     private val pathAngle = Path()
@@ -32,21 +33,23 @@ class LoadingButton @JvmOverloads constructor(
     private var endOfProgress: Float = 0f
     private val rectangleText = Rect()
     private val rectangleCurve = RectF()
-    var stateOfButton: ButtonState by Delegates.observable<ButtonState>(ButtonState.Completed) { p, old, new ->
+    var stateOfButton: ButtonState by Delegates.observable<ButtonState>(ButtonState.DownloadCompleted) { p, old, new ->
         when(new){
-            is ButtonState.Loading -> {
-                if (old != ButtonState.Loading) {
+            is ButtonState.Downloading -> {
+                if (old != ButtonState.Downloading) {
                     settingAnimation()
                     SettingColorBacgroundOfButton(colorPrimaryCyen)
                 }
             }
 
-            is ButtonState.Completed -> {
+            is ButtonState.DownloadCompleted -> {
                 settingProgressOfButton(1f)
+                SettingColorTextOfButton(colorTextedWhite)
             }
 
             is ButtonState.Failure -> {
                 SettingColorBacgroundOfButton(colorFailedRed)
+                SettingColorTextOfButton(colorTextedWhite)
                 resetingProgress()
             }
 
@@ -96,16 +99,20 @@ class LoadingButton @JvmOverloads constructor(
     private fun SettingColorBacgroundOfButton(colorOfBackground: Int) {
         this.colorOfBackground.color = colorOfBackground
     }
+    private fun SettingColorTextOfButton(colorOfText: Int) {
+        this.colorOfText.color = colorOfText
+    }
     fun settingProgressOfButton(floatProgress: Float) {
         if (InProgress < floatProgress){
+            Timber.i("ppp   settingProgressOfButton:   $floatProgress")
             endOfProgress = floatProgress
             settingAnimation()
         }
     }
-    fun addButtonProgress(floatProgress: Float) {
-        if (InProgress < 0.64f){
+    fun addingButtonProgress(floatProgress: Float) {
+       // if (InProgress < 0.64f){
             settingProgressOfButton(InProgress + floatProgress)
-        }
+       // }
     }
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
@@ -124,7 +131,7 @@ class LoadingButton @JvmOverloads constructor(
             rectangleLoad.set(0, 0, (width * InProgress).roundToInt(), height)
             drawRect(rectangleLoad, colorOfBackgroundInProgress)
 
-            if (stateOfButton == ButtonState.Loading) {
+            if (stateOfButton == ButtonState.Downloading) {
                 val startOfCurveX = width / 2f + rectangleText.width() / 2f
                 val startOfCurveY = height / 2f - 19
                 rectangleCurve.set(startOfCurveX, startOfCurveY, startOfCurveX + 38, startOfCurveY + 38)
@@ -153,6 +160,7 @@ class LoadingButton @JvmOverloads constructor(
 
     }
     fun settingLoadStateForButton(buttonState1: ButtonState) {
+
         stateOfButton = buttonState1
     }
     override fun onSizeChanged(width: Int, height: Int, widthOld: Int, heightOld: Int) {
@@ -190,6 +198,8 @@ class LoadingButton @JvmOverloads constructor(
                 override fun onAnimationEnd(animation: Animator) {
                     super.onAnimationEnd(animation)
                     if (InProgress == 1f){
+
+                        Timber.i("ppp  calling resetingProgress: ")
                         resetingProgress()
                     }else{
                         valuesAnimator.cancel()
@@ -202,6 +212,8 @@ class LoadingButton @JvmOverloads constructor(
 
     private fun resetingProgress() {
         endOfProgress = 0f
+
+        Timber.i("ppp   resetingProgress: ")
         settingAnimation()
     }
 }

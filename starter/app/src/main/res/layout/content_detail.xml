@@ -1,11 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/content_detail_constrain"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".DetailActivity"
+    tools:context=".DetailsActivity"
     tools:showIn="@layout/activity_detail">
 
+
+    <TextView
+        android:id="@+id/title_file_name"
+        android:layout_width="wrap_content"
+        android:layout_height="301dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:text="File Name:"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/file_name"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/title_file_name"
+        tools:text="url" />
+
+    <TextView
+        android:id="@+id/title_status"
+        android:layout_width="wrap_content"
+        android:layout_height="301dp"
+        android:text="Status:"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/title_file_name"
+        app:layout_constraintTop_toBottomOf="@+id/title_file_name" />
+
+    <TextView
+        android:id="@+id/status_result"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/file_name"
+        app:layout_constraintTop_toTopOf="@+id/title_status"
+        tools:text="Failed or passed" />
+
+    <Button
+        android:id="@+id/ok_button"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_margin="30dp"
+        android:gravity="center"
+        android:text="OK"
+        android:textAllCaps="false"
+        android:textColor="@color/color_white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

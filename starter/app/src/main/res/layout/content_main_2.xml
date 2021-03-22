@@ -23,7 +23,7 @@
             tools:showIn="@layout/activity_main"/>
 
         <RadioGroup
-            android:id="@+id/radio_group"
+            android:id="@+id/radio_button_group"
             android:layout_width="match_parent"
             android:layout_marginTop="120dp"
             android:layout_height="300dp"
@@ -39,7 +39,7 @@
                 android:text="@string/glide_image_loading" />
 
             <RadioButton
-                android:id="@+id/radio_button_loadapp_download"
+                android:id="@+id/radio_button_udacity_download"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:onClick="onRadioButtonClicked"

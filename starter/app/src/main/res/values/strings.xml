@@ -7,10 +7,15 @@
     <string name="notification_title">hus: Android Kotlin Nanodegree </string>
     <string name="notification_description">The Project 3 repository is downloaded</string>
     <string name="notification_button">See changes</string>
+    <string name="channel_id_for_notification">download channel</string>
+    <string name="channel_name_for_notification">Download Name</string>
+    <string name="channel_description_for_notification">GitHub Repository Download</string>
+    <string name="view_details">View</string>
 
     <string name="button_name">Click me</string>
     <string name="button_loading">We are loading </string>
     <string name="title_activity_detail">DetailActivity</string>
+    <string name="stashed_repo_folder">/repositories</string>
 
     <string name="retrofit_safe_http">Retrofit - Type-safe HTTP client for Android and Java by Square, Inc</string>
     <string name="glide_image_loading">Glide - Image Loading Library by BumpTech</string>
@@ -20,4 +25,12 @@
     <string name="loading_completed">Loading Completed</string>
     <string name="loading_in_progress">Loading is In Progress</string>
     <string name="failure">Failed to download</string>
+    <string name="permission_denied">Permission Denied</string>
+    <string name="successful_download">Successful Download</string>
+    <string name="title_activity_details">DetailsActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
 </resources>
